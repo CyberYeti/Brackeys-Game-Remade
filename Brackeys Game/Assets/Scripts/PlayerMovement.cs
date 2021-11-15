@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         forwardVelocity = rb.velocity.z;
         float maxSpeedFactor = Mathf.Clamp(maxForwardVelocity - forwardVelocity, 0, 1);
         Vector3 forwardAddedForce = Vector3.forward * forwardForce * maxSpeedFactor;
-        rb.AddForce(forwardAddedForce, ForceMode.Force);
+        rb.AddForce(forwardAddedForce);
         #endregion
 
         #region Sideways Movement
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
             horizontalAddedForce += Vector3.left * horizontalForce;
         if (gotRightInput)
             horizontalAddedForce += Vector3.right * horizontalForce;
-        rb.AddForce(horizontalAddedForce, ForceMode.Force);
+        rb.AddForce(horizontalAddedForce);
         #endregion
     }
 }
