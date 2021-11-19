@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [ExecuteInEditMode]
@@ -9,6 +8,8 @@ public class BlockSnap : MonoBehaviour
 
     void Update()
     {
+        if (EditorApplication.isPlaying) return;
+
         float x = transform.position.x - transform.position.x % gridSize;
         float y = transform.position.y - transform.position.y % gridSize;
         float z = transform.position.z - transform.position.z % gridSize;
